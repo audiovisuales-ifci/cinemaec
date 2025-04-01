@@ -8,6 +8,7 @@ p,
 a,
 li,
 label {
+  text-decoration: none;
   color: var(--color-dark);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -15,6 +16,7 @@ label {
 h1,
 h2,
 h3 {
+  text-transform: uppercase;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
     'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: var(--color-primary);
@@ -40,43 +42,6 @@ h2 {
   padding: 0.6rem 5rem 1rem 1rem;
   margin: 2rem 4rem;
   font-size: 2rem;
-}
-
-.button-secondary {
-  font-family: var(--font-family-button);
-  padding: 0.3rem 2rem;
-  width: fit-content;
-  border: var(--border-button);
-  border-radius: var(--border-button-radious);
-  box-shadow: var(--box-shadow-button);
-  transition: all ease-in-out 0.2s;
-}
-
-.button__secondary:hover {
-  background-color: var(--color-primary);
-  color: var(--color-gray);
-  box-shadow: none;
-  transition: all ease-in-out 0.2s;
-}
-
-.button-primary {
-  display: block;
-  padding: 0.4rem 3rem;
-  height: 2rem;
-  width: fit-content;
-  margin: 1rem;
-  font-family: var(--font-family-button);
-  color: var(--color-gray);
-  background-color: var(--color-primary);
-  border: none;
-  box-shadow: 3px 4px 0px var(--color-secondary);
-  transition: all 0.3s;
-}
-
-.button-primary:hover {
-  background-color: var(--color-secondary);
-  box-shadow: 5px 6px 0px var(--color-primary);
-  transition: all 0.3s;
 }
 
 .not-found__container {

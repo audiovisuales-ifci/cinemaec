@@ -4,6 +4,7 @@ import About from './components/About'
 import styles from './Rea.module.css'
 import Benefits from './components/Benefits'
 import videoURL from '../../assets/videos/introREA.mp4'
+import { Fade } from 'react-awesome-reveal'
 
 const Rea = () => {
   return (
@@ -21,7 +22,7 @@ const Rea = () => {
             Su navegador no soporta video
           </video>
 
-          <div className={styles.parrafo}>
+          <Fade cascade className={styles.parrafo}>
             <h1>RED DE ESPACIOS AUDIOVISUALES</h1>
             <p>
               La Red de Espacios Audiovisuales -REA- es una
@@ -35,7 +36,7 @@ const Rea = () => {
               cultural y fortaleciendo la colaboración entre
               gestores y usuarios del Banco de Contenidos.
             </p>
-          </div>
+          </Fade>
         </main>
       </Section>
       <About />

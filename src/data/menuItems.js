@@ -12,24 +12,24 @@ export const menuItems = [
     icon: HomeIcon,
   },
   {
-    name: 'Catálogo',
+    name: 'Cine ecuatoriano',
     path: '/cataloge',
     icon: CollectionsIcon,
   },
   {
-    name: 'Rea',
+    name: 'Red de Espacios Audiovisuales',
     path: '/rea',
     icon: LocalMoviesIcon,
   },
   {
-    name: 'Banco de Contenidos',
+    name: 'Catálogo de películas REA',
     path: '/rea/movies',
     icon: SlideshowIcon,
   },
   {
-    name: 'Registro',
-    path: '/rea/register',
-    icon: AppRegistrationIcon,
+    name: 'Work in progress',
+    path: '/projects',
+    icon: SlideshowIcon,
   },
   {
     name: 'Contacto',

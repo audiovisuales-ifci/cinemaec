@@ -2,7 +2,7 @@ import Section from '../../components/Section'
 import RegisterForms from './components/RegisterForms'
 import styles from './Register.module.css'
 import { useState } from 'react'
-import { requirements } from '../../db/requirements'
+import { requirements } from '../../data/requirements'
 import { Tab, Tabs, Box } from '@mui/material'
 import CustomTabPanel from './components/CustomTabPanel'
 
@@ -37,12 +37,21 @@ const Register = () => {
               aria-label="wrapped label tabs example"
             >
               {requirements.map((item, i) => (
-                <Tab value={i} label={item.title} wrapped />
+                <Tab
+                  key={`${item}_${i}`}
+                  value={i}
+                  label={item.title}
+                  wrapped
+                />
               ))}
             </Tabs>
           </Box>
           {requirements.map((item, i) => (
-            <CustomTabPanel value={value} index={i}>
+            <CustomTabPanel
+              key={`${item}_${i}`}
+              value={value}
+              index={i}
+            >
               {item.text}
             </CustomTabPanel>
           ))}

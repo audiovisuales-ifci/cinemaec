@@ -1,14 +1,10 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './MoviesGallery.module.css'
 import MovieCard from './components/MovieCard'
-import Loader from '../../components/Loader'
+import { setLoader } from '../../redux/loader.reducer'
 
 const MoviesCataloge = () => {
   const allMovies = useSelector(state => state.movies)
-
-  if (!allMovies) {
-    return <Loader isActive={true} />
-  }
 
   const movies = allMovies.filter(movie =>
     movie.country.includes('Ecuador'),

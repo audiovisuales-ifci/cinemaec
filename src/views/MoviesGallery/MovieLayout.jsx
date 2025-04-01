@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom'
-import Loader from '../../components/Loader'
 import { useEffect, useState } from 'react'
 import { getMovie } from '../../services/movies'
 import { useImageContent } from '../../hooks/useImages'
@@ -20,11 +19,13 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import TheatersIcon from '@mui/icons-material/Theaters'
 import dayjs from 'dayjs'
+import { useDispatch } from 'react-redux'
+import { setLoader } from '../../redux/loader.reducer'
 
 const MovieLayout = () => {
   const { id } = useParams()
   const [movie, setMovie] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
   const [error, setError] = useState(null)
   const poster = useImageContent(movie?.poster.url)
   const banner = useImageContent(movie?.stills[0]?.url)
@@ -32,19 +33,21 @@ const MovieLayout = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
+        dispatch(setLoader(true))
         const response = await getMovie(id)
         setMovie(response)
       } catch (err) {
         setError('Error al cargar la película')
       } finally {
-        setLoading(false)
+        setLoader(false)
       }
     }
 
     fetchMovie()
   }, [id])
 
-  if (loading) return <Loader isActive={true} />
+  if (loading) return dispatch(setLoader(loading))
+
   if (error) return <p>{error}</p>
 
   const renderStill = id => {
@@ -54,8 +57,6 @@ const MovieLayout = () => {
     setStillStillVisible(!stillIsVisible)
     setStill(stillSelected)
   }
-
-  console.log(movie)
 
   return (
     <div className={styles.movie__layout}>

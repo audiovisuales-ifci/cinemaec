@@ -1,36 +1,26 @@
-import { useEffect, useState } from 'react'
-import { Backdrop, CircularProgress } from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
+import { useSelector } from 'react-redux'
 
-const style = {
-  display: 'fixed',
-  top: 0,
-  zIndex: 100,
-  width: '100vw',
-  height: '100vh',
-}
+const Loader = () => {
+  const isLoader = useSelector(state => state.loader)
 
-const Loader = ({ isActive }) => {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    if (isActive) {
-      setOpen(true)
-    } else {
-      setOpen(false)
-    }
-  }, [isActive])
+  if (!isLoader) return null
 
   return (
-    <div style={style}>
-      <Backdrop
-        sx={{
-          color: '#fff',
-          zIndex: theme => theme.zIndex.drawer + 1,
-        }}
-        open={open}
+    <div
+      style={{
+        zIndex: 1000,
+        width: '100vw',
+        height: '100vh',
+        verticalAlign: 'center',
+      }}
+    >
+      <Box
+        sx={{ display: 'flex', width: 350, margin: 'auto' }}
       >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+        <CircularProgress color="primary" />
+      </Box>
     </div>
   )
 }

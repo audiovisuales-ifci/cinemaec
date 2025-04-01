@@ -1,0 +1,46 @@
+.container {
+  position: relative;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  justify-content: center;
+}
+
+.text__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.text__container h1,
+.text__container h2 {
+  margin: 0;
+}
+
+.text__container h2 {
+  padding: 1rem;
+}
+
+.rotating__container {
+  height: 4rem;
+  overflow: hidden;
+  transition: width ease 3s;
+}
+
+.btn__container {
+  position: absolute;
+  bottom: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 750px) {
+  .text__container {
+    flex-flow: column wrap;
+    gap: 1rem;
+  }
+}

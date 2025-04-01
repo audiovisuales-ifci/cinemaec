@@ -41,12 +41,21 @@ const RegisterForms = () => {
             onChange={handleChange}
           >
             {forms.map((item, i) => (
-              <Tab value={i} label={item.title} wrapped />
+              <Tab
+                key={`${item}_${i}`}
+                value={i}
+                label={item.title}
+                wrapped
+              />
             ))}
           </Tabs>
         </Box>
         {forms.map((item, i) => (
-          <CustomTabPanel value={value} index={i}>
+          <CustomTabPanel
+            key={`${item}_${i}`}
+            value={value}
+            index={i}
+          >
             <iframe
               className={`airtable-embed ${styles.forms}`}
               src={item.src}

@@ -7,8 +7,9 @@ import {
   Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { benefitsText } from '../../../db/benefitsTexts'
+import { benefitsText } from '../../../data/benefitsTexts'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+import Button from '../../../components/Button/Button'
 
 const Benefits = () => {
   return (
@@ -32,8 +33,9 @@ const Benefits = () => {
             </AccordionDetails>
           </Accordion>
         ))}
-        <Link to="/register" className="button-primary">
-          Regístrate
+
+        <Link to="/rea/register" className="button-primary">
+          <Button label="Regístrate" />
         </Link>
       </Section>
     </div>

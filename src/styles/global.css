@@ -1,8 +1,9 @@
 /* globals css */
 :root {
-  --font-family-primary: font-family: Verdana, Geneva, Tahoma, sans-serif;
-  --font-family-button: Impact, Haettenschweiler, 'Arial Narrow Bold',
-  sans-serif;
+  --font-family-primary: font-family: Verdana, Geneva,
+    Tahoma, sans-serif;
+  --font-family-button: Impact, Haettenschweiler,
+    'Arial Narrow Bold', sans-serif;
   --color-primary: #be3144;
   --color-secondary: #3a4750;
   --color-dark: #303841;

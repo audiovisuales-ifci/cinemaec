@@ -5,12 +5,5 @@
   "useTabs": false,
   "semi": false,
   "singleQuote": true,
-  "arrowParens": "avoid",
-  "prettier/prettier": [
-    "error",
-    {},
-    {
-      "usePrettierrc": false
-    }
-  ]
+  "arrowParens": "avoid"
 }

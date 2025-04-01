@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
 
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Home from './views/Home/Home'
 import Footer from './components/Footer'
 import BadRequest from './components/BadRequest'
-import ReaRoutes from './routes/ReaRoutes'
+import ReaRoutes from './routes/reaRoutes'
 import Contact from './components/Contact'
 import MoviesCataloge from './views/MoviesGallery/MoviesCataloge'
 import MovieLayout from './views/MoviesGallery/MovieLayout'
@@ -12,6 +12,9 @@ import Notification from './components/Notification'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getInitialMovies } from './redux/moviesReducer'
+import Loader from './components/Loader'
+import Project from './views/Projects/Project'
+import ProjectsCataloge from './views/Projects/ProjectsCataloge'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -27,6 +30,7 @@ const App = () => {
   return (
     <>
       <Header />
+      <Loader />
       <Notification />
       <Routes>
         <Route path="/rea/*" element={<ReaRoutes />} />
@@ -39,6 +43,11 @@ const App = () => {
           element={<MovieLayout />}
         />
         <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/projects"
+          element={<ProjectsCataloge />}
+        />
+        <Route path="/projects/:id" element={<Project />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<BadRequest />} />
       </Routes>
