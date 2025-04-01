@@ -27,36 +27,34 @@ const MovieLayout = () => {
   const [movie, setMovie] = useState(null)
   const dispatch = useDispatch()
   const [error, setError] = useState(null)
-  const poster = useImageContent(movie?.poster.url)
+  const poster = useImageContent(movie?.poster?.url)
   const banner = useImageContent(movie?.stills[0]?.url)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
+        setLoading(true)
         dispatch(setLoader(true))
         const response = await getMovie(id)
         setMovie(response)
+        setError(null)
       } catch (err) {
         setError('Error al cargar la película')
       } finally {
-        setLoader(false)
+        setLoading(false)
+        dispatch(setLoader(false))
       }
     }
 
     fetchMovie()
-  }, [id])
+  }, [id, dispatch])
 
-  if (loading) return dispatch(setLoader(true))
+  if (loading) return null
 
   if (error) return <p>{error}</p>
 
-  const renderStill = id => {
-    const stillSelected = movie.stills.find(
-      still => still.id === id,
-    )
-    setStillStillVisible(!stillIsVisible)
-    setStill(stillSelected)
-  }
+  if (!movie) return null
 
   return (
     <div className={styles.movie__layout}>
@@ -140,7 +138,7 @@ const MovieLayout = () => {
       </div>
       {movie.channels && (
         <div className={styles.channels}>
-          <p>Esta película esta disponible en:</p>
+          <p>Esta película está disponible en:</p>
           {movie.channels.map((channel, i) => (
             <Button
               key={i}
