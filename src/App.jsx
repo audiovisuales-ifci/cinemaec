@@ -1,10 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
-
 import Header from './components/Header/Header'
 import Home from './views/Home/Home'
 import Footer from './components/Footer'
 import BadRequest from './components/BadRequest'
-import ReaRoutes from './routes/reaRoutes'
+import ReaRoutes from './routes/ReaRoutes'
 import Contact from './components/Contact'
 import MoviesCataloge from './views/MoviesGallery/MoviesCataloge'
 import MovieLayout from './views/MoviesGallery/MovieLayout'
