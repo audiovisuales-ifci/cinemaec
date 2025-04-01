@@ -46,7 +46,7 @@ const MovieLayout = () => {
     fetchMovie()
   }, [id])
 
-  if (loading) return dispatch(setLoader(loading))
+  if (loading) return dispatch(setLoader(true))
 
   if (error) return <p>{error}</p>
 
